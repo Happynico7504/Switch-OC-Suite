@@ -17,4 +17,4 @@ jobs:
         prerelease: false
         title: "Switch OC Patch"
         files: |
-          Source/Atmosphere/stratosphere/loader/source/oc/build/test
+          Source/Atmosphere/stratosphere/loader/source/oc/test
