@@ -13,7 +13,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Switch to correct folder
-      run: cd Source/Atmosphere/stratosphere/loader/source/oc
-    - name: Build it!
-      run: make
+    - name: Run build script
+      run: scripts/build.sh
