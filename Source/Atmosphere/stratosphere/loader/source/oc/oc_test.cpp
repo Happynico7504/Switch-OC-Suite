@@ -171,23 +171,6 @@ int main(int argc, char** argv) {
             free(erista_buf);
         }
 
-        {
-            void* mariko_buf = malloc(file_size);
-            std::memcpy(mariko_buf, file_buffer, file_size);
-
-            printf("Patching %s for Mariko...\n", pcv_opt);
-            ams::ldr::oc::pcv::mariko::Patch(reinterpret_cast<uintptr_t>(mariko_buf), file_size);
-            if (save_patched) {
-                char* exec_path_mariko = reinterpret_cast<char *>(malloc(exec_path_patched_len));
-                strncpy(exec_path_mariko, exec_path, exec_path_patched_len);
-                strncat(exec_path_mariko, mariko_ext, exec_path_patched_len);
-                saveExec(exec_path_mariko, mariko_buf, file_size);
-                free(exec_path_mariko);
-            }
-            free(mariko_buf);
-        }
-    }
-
     if (exe_opt == EXE_PTM) {
         void* mariko_buf = malloc(file_size);
         std::memcpy(mariko_buf, file_buffer, file_size);
