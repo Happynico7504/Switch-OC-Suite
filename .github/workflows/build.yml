@@ -6,7 +6,6 @@ jobs:
   build:
     runs-on: "local-pc"
     steps:
-    
     - uses: "actions/checkout@v2"
     - run: |
       chmod 755 scripts/build.sh
