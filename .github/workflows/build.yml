@@ -14,4 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Run build script
-      run: scripts/build.sh
+      run: |
+      chmod 755 scripts/build.sh
+      scripts/build.sh
