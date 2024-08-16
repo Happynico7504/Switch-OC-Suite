@@ -9,8 +9,8 @@ jobs:
     
     - uses: "actions/checkout@v2"
     - run: |
-    chmod 755 scripts/build.sh
-    scripts/build.sh
+      chmod 755 scripts/build.sh
+      scripts/build.sh
     - uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
