@@ -1,19 +1,21 @@
-name: Build OC Patch
-
+name: "Release Pipeline (selfhosted)"
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+  workflow_dispatch:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-
+    runs-on: "local-pc"
     steps:
-    - uses: actions/checkout@v4
-    - name: Run build script
-    -  run: |
-      chmod 755 scripts/build.sh
-      scripts/build.sh
+    
+    - uses: "actions/checkout@v2"
+    - run: |
+    chmod 755 scripts/build.sh
+    scripts/build.sh
+    - uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "patch"
+        prerelease: false
+        title: "Switch OC Patch"
+        files: |
+          loader.kip
