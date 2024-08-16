@@ -170,7 +170,7 @@ int main(int argc, char** argv) {
             }
             free(erista_buf);
         }
-
+    }
     if (exe_opt == EXE_PTM) {
         void* mariko_buf = malloc(file_size);
         std::memcpy(mariko_buf, file_buffer, file_size);
